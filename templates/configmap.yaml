@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "pictshare.fullname" . }}-config
+  labels:
+    {{- include "pictshare.labels" . | nindent 4 }}
+data:
+  config.inc.php: |
+    <?php
+    define('URL', 'http://{{ (first .Values.ingress.hosts).host }}/');
+    define('TITLE', 'PictShare');
+    define('ALLOWED_SUBNET', '');
+    define('CONTENTCONTROLLERS', '');
+    define('MASTER_DELETE_CODE', '');
+    define('MASTER_DELETE_IP', '');
+    define('UPLOAD_FORM_LOCATION', '/int/upload');
+    define('UPLOAD_CODE', '');
+    define('LOG_UPLOADER', false);
+    define('MAX_RESIZED_IMAGES',-1);
+    define('ALLOW_BLOATING', false);
+    define('SHOW_ERRORS', false);
+    define('JPEG_COMPRESSION', 90);
+    define('PNG_COMPRESSION', 6);
+    define('ALT_FOLDER', '');
+    define('S3_BUCKET', '');
+    define('S3_ACCESS_KEY', '');
+    define('S3_SECRET_KEY', '');
+    define('S3_ENDPOINT', '');
+    define('S3_REGION', '');
+    define('FTP_SERVER', '');
+    define('FTP_PORT', 21);
+    define('FTP_USER', '');
+    define('FTP_PASS', '');
+    define('FTP_PASSIVEMODE', true);
+    define('FTP_SSL', false);
+    define('FTP_BASEDIR', '');
+    define('ENCRYPTION_KEY', '');
+    define('FFMPEG_BINARY', '/usr/bin/ffmpeg');
+    define('ALWAYS_WEBP', false);
+    define('ALLOWED_DOMAINS', '');
+    define('SPLIT_DATA_DIR', false);

@@ -1,0 +1,80 @@
+replicaCount: 1
+
+additionalVolumeMounts: []
+
+additionalVolumes: []
+
+affinity: {}
+
+autoscaling:
+  enabled: false
+  maxReplicas: 100
+  minReplicas: 1
+  targetCPUUtilizationPercentage: 80
+
+fullnameOverride: ""
+
+image:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/hascheksolutions/pictshare
+  tag: 2.0.1
+
+imagePullSecrets: []
+
+livenessProbe:
+  httpGet:
+    path: /int/upload
+    port: http
+readinessProbe:
+  httpGet:
+    path: /int/upload
+    port: http
+
+nameOverride: ""
+
+nodeSelector: {}
+
+persistence:
+  data:
+    accessModes:
+      - ReadWriteMany
+    resources:
+      requests:
+        storage: 1Gi
+    # storageClassName:
+
+podAnnotations: {}
+
+podLabels: {}
+
+podSecurityContext: {}
+
+resources: {}
+
+securityContext: {}
+
+service:
+  port: 80
+  type: ClusterIP
+
+serviceAccount:
+  annotations: {}
+  automount: true
+  create: false
+  name: ""
+
+tolerations: []
+
+ingress:
+  enabled: false
+  # annotations: {}
+  # className: nginx
+  hosts: []
+  tls: []
+
+uploadIngress:
+  enabled: false
+  annotations: {}
+  # className: nginx
+  hosts: []
+  tls: []
