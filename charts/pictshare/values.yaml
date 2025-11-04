@@ -1,3 +1,4 @@
+# -- Number of replicas.
 replicaCount: 1
 
 additionalVolumeMounts: []
@@ -15,8 +16,13 @@ autoscaling:
 fullnameOverride: ""
 
 image:
+  # -- Image Pull Policy.
   pullPolicy: IfNotPresent
-  repository: ghcr.io/hascheksolutions/pictshare
+  # -- Image Registry.
+  repository: ghcr.io
+  # -- Image Repository.
+  repository: hascheksolutions/pictshare
+  # -- Image Tag.
   tag: 2.0.1
 
 imagePullSecrets: []
@@ -36,12 +42,15 @@ nodeSelector: {}
 
 persistence:
   data:
+    # -- Storage PVC Access Modes.
     accessModes:
       - ReadWriteMany
     resources:
       requests:
+        # -- Storage PVC Size.
         storage: 1Gi
-    # storageClassName:
+    # -- Storage Class to use for uploads storage.
+    storageClassName:
 
 podAnnotations: {}
 
@@ -55,6 +64,7 @@ securityContext: {}
 
 service:
   port: 80
+  # -- Service Type.
   type: ClusterIP
 
 serviceAccount:
@@ -66,6 +76,7 @@ serviceAccount:
 tolerations: []
 
 ingress:
+  # -- Whether to use an Ingress for application access.
   enabled: false
   # annotations: {}
   # className: nginx
@@ -73,6 +84,7 @@ ingress:
   tls: []
 
 uploadIngress:
+  # -- Whether to use a separate Ingress for uploading.
   enabled: false
   annotations: {}
   # className: nginx
