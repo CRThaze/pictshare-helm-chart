@@ -1,6 +1,5 @@
 name: pictshare
 version: 0.1.0
-description: A Helm chart for Kubernetes
-apiVersion: v2
-appVersion: 1.16.0
+description: A Helm chart for deploying picshare
+appVersion: 2.0.1
 type: application
