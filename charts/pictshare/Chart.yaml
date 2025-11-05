@@ -1,5 +1,14 @@
+appVersion: v2
 name: pictshare
 version: 0.1.0
+icon: https://raw.githubusercontent.com/HaschekSolutions/pictshare/master/css/imgs/logo/logo.svg
+keywords:
+  - pictshare
+  - image
+  - picture
+  - image-uploader
+sources:
+  - https://github.com/CRThaze/pictshare-helm-chart
 description: A Helm chart for deploying picshare
 appVersion: 2.0.1
 type: application
