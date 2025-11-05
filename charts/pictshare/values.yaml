@@ -23,7 +23,8 @@ image:
   # -- Image Repository.
   repository: hascheksolutions/pictshare
   # -- Image Tag.
-  tag: 2.0.1
+  # @default -- Uses `.Chart.appVersion`
+  tag:
 
 imagePullSecrets: []
 
