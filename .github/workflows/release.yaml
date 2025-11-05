@@ -80,6 +80,10 @@ jobs:
           git config --global user.name 'github-actions'
           git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
 
+      - name: Put README inside Chart
+        run: |
+          cp README.md charts/pictshare/
+
       - name: Run chart-releaser
         uses: bitdeps/helm-oci-charts-releaser@v0.1.3
         with:
