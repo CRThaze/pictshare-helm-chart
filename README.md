@@ -1,8 +1,12 @@
 # pictshare
 
-![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.0.1](https://img.shields.io/badge/AppVersion-2.0.1-informational?style=flat-square)
+![Version: 0.1.2](https://img.shields.io/badge/Version-0.1.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.0.1](https://img.shields.io/badge/AppVersion-2.0.1-informational?style=flat-square)
 
 A Helm chart for deploying picshare
+
+## Source Code
+
+* <https://github.com/CRThaze/pictshare-helm-chart>
 
 ### Parameters
 
@@ -21,7 +25,7 @@ A Helm chart for deploying picshare
 | image.pullPolicy | string | `"IfNotPresent"` | Image Pull Policy. |
 | image.repository | string | `"ghcr.io"` | Image Registry. |
 | image.repository | string | `"hascheksolutions/pictshare"` | Image Repository. |
-| image.tag | string | `"2.0.1"` | Image Tag. |
+| image.tag | string | Uses `.Chart.appVersion` | Image Tag. |
 | imagePullSecrets | list | `[]` |  |
 | ingress.enabled | bool | `false` | Whether to use an Ingress for application access. |
 | ingress.hosts | list | `[]` |  |
