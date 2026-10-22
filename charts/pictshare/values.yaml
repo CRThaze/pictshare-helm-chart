@@ -18,8 +18,8 @@ fullnameOverride: ""
 image:
   # -- Image Pull Policy.
   pullPolicy: IfNotPresent
-  # -- Image Registry.
-  repository: ghcr.io
+  # -- Image Registry (empty uses the runtime's default, Docker Hub).
+  registry: ""
   # -- Image Repository.
   repository: hascheksolutions/pictshare
   # -- Image Tag.
@@ -28,13 +28,21 @@ image:
 
 imagePullSecrets: []
 
+# -- Base URL PictShare puts in upload responses; must end with `/`.
+# @default -- `http://<first ingress host>/`
+url: ""
+
+# -- Extra container env. PictShare 3 builds its config from env on every start; see
+# https://github.com/HaschekSolutions/pictshare/blob/master/rtfm/CONFIG.md
+env: []
+
 livenessProbe:
   httpGet:
-    path: /int/upload
+    path: /
     port: http
 readinessProbe:
   httpGet:
-    path: /int/upload
+    path: /
     port: http
 
 nameOverride: ""
@@ -85,7 +93,8 @@ ingress:
   tls: []
 
 uploadIngress:
-  # -- Whether to use a separate Ingress for uploading.
+  # -- Whether to use a separate Ingress for uploading. PictShare 3 takes writes on `/api`,
+  # `/mcp` and `/report`; the upload form itself is at `/`.
   enabled: false
   annotations: {}
   # className: nginx
